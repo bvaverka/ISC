@@ -9,3 +9,16 @@ gc_content <- function(dna) {
   return(gc)
   }
 print(gc_content(str_to_lower(elf_dna$dnaseq))) 
+
+# Problem 7
+get_size_class <- function(ear_length){
+  # Calculate the size class for one or more earth lengths
+  ear_lengths <- ifelse(ear_length > 10, "large", "small")
+  return(ear_lengths)
+}
+
+
+elf_table <- data.frame(ID=elf_dna$id,Ear_Class=elf_dna$earlength,
+              GC_Content=gc_content(str_to_lower(elf_dna$dnaseq)))
+
+write.csv(elf_table, file = "elf_table.csv")
